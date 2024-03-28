@@ -135,12 +135,23 @@
       <div id="messageDisplayArea"></div>
       
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <canvas id="myBlueCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
+
+        var canvas = document.getElementById('myBlueCanvas');
+        var blueContext = canvas.getContext("2d");
+       
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
+
+        blueContext.font = '20pt Calibri';
+        blueContext.fillText = 'Blue image displayed here';
+
+       const srgbImageData = blueContext.getImageData(0, 0, 1, 1, { colorSpace: "srgb" });
+       console.log(srgbImageData.colorSpace);
       </script>
 
     </div><!-- /content -->
