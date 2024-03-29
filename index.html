@@ -107,8 +107,11 @@
 
        var blueCanvas = document.getElementById('myBlueCanvas');
        var blueContext = blueCanvas.getContext("2d");
+        blueContext.font = '20pt Calibri';
+        blueContext.fillStyle = "black";
+        blueContext.fillText("Blue image will go here", 10, 20);
          
-       var imgData = blueContext.getImageData(0, 0, 600, 500);
+       var imgData = context.getImageData(0, 0, 600, 500);
        for(let i=0;i<imgData.data.length;i+=4)   {
               imgData.data[i+0] = 0;
               imgData.data[i+1] = 0;
@@ -153,9 +156,6 @@
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
-
-        var blueCanvas = document.getElementById('myBlueCanvas');
-        var blueContext = canvas.getContext("2d");
        
         context.font = '20pt Calibri';
         context.fillStyle = "black";
