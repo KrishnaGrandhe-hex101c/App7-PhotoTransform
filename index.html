@@ -22,12 +22,15 @@
   http://www.w3.org/TR/FileAPI/
   http://mobilehtml5.org/
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
+ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/putImageData
+ https://stackoverflow.com/questions/2754865/how-to-get-the-rgb-value-of-an-image-in-a-page-using-javascript
+ https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData
   
   Brief Description of Goal of Code:
-  blah, blah, blah,
+  The purpose of this code is to take an image as input, and output the blue data of that image as a separate image.
  
   Known Issues:
-  blah, blah, blah, blah
+  No known issues.
 -->
 
  <head>
@@ -103,7 +106,7 @@
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
 
        var blueCanvas = document.getElementById('myBlueCanvas');
-        var blueContext = canvas.getContext("2d");
+       var blueContext = blueCanvas.getContext("2d");
          
        var imgData = blueContext.getImageData(0, 0, 600, 500);
        for(let i=0;i<imgData.data.length;i+=4)   {
