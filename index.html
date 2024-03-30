@@ -105,19 +105,20 @@
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
 
-       var blueCanvas = document.getElementById('myBlueCanvas');
-       var blueContext = blueCanvas.getContext("2d");
-     
-       blueCanvas.width = blueCanvas.width;
+       var blueCanvas = document.getElementById('myBlueCanvas'); //finds blue canvas object (second one)
+       var blueContext = blueCanvas.getContext("2d"); //gets the context to manipulate
+      
+       blueCanvas.width = blueCanvas.width; //removes text so there's no overlap
          
-       var imgData = context.getImageData(0, 0, 600, 500);
+       var imgData = context.getImageData(0, 0, 600, 500); //extracts image data
+        //the loop below runs through the pixel data of the image (r,g,b,a)
        for(let i=0;i<imgData.data.length;i+=4)   {
-              imgData.data[i+0] = 0;
-              imgData.data[i+1] = 0;
-              imgData.data[i+2] = imgData.data[i+2];
-              imgData.data[i+3] = imgData.data[i+3];
+              imgData.data[i+0] = 0; //setting red to 0
+              imgData.data[i+1] = 0; //setting green to 0
+              imgData.data[i+2] = imgData.data[i+2]; //keeping blue the same
+              imgData.data[i+3] = imgData.data[i+3]; //keeping alpha the same
        }
-       blueContext.putImageData(imgData,0,0);
+       blueContext.putImageData(imgData,0,0); //putting in the modified image data, only blue
           
           
         } // end of img.onload
@@ -148,8 +149,9 @@
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
-      
+      <!--first canvas, where the input image goes-->
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+     <!--second canvas, where the blue output goes-->
       <canvas id="myBlueCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
@@ -159,9 +161,10 @@
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
 
-
+       //finds canvas and context
         var blueCanvas = document.getElementById('myBlueCanvas');
        var blueContext = blueCanvas.getContext("2d");
+       //puts pre-text on second canvas to show final location
         blueContext.font = '20pt Calibri';
         blueContext.fillStyle = "black";
         blueContext.fillText("Blue image will go here", 10, 20);
