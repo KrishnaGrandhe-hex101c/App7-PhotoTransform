@@ -107,9 +107,8 @@
 
        var blueCanvas = document.getElementById('myBlueCanvas');
        var blueContext = blueCanvas.getContext("2d");
-        blueContext.font = '20pt Calibri';
-        blueContext.fillStyle = "black";
-        blueContext.fillText("Blue image will go here", 10, 20);
+     
+       blueCanvas.width = blueCanvas.width;
          
        var imgData = context.getImageData(0, 0, 600, 500);
        for(let i=0;i<imgData.data.length;i+=4)   {
@@ -118,7 +117,6 @@
               imgData.data[i+2] = imgData.data[i+2];
               imgData.data[i+3] = imgData.data[i+3];
        }
-       blueCanvas.width = blueCanvas.width;
        blueContext.putImageData(imgData,0,0);
           
           
@@ -160,7 +158,13 @@
         context.font = '20pt Calibri';
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
-     
+
+
+        var blueCanvas = document.getElementById('myBlueCanvas');
+       var blueContext = blueCanvas.getContext("2d");
+        blueContext.font = '20pt Calibri';
+        blueContext.fillStyle = "black";
+        blueContext.fillText("Blue image will go here", 10, 20);
       </script>
 
     </div><!-- /content -->
